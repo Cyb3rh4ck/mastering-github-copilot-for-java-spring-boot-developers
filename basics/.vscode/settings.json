@@ -1,0 +1,9 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.test.config": {
+        "name": "JUnit 5",
+        "workingDirectory": "${workspaceFolder}",
+        "args": ["--enable-preview"]
+    }
+
+}

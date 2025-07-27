@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: elcaro
+      MYSQL_DATABASE: clinicals
+      MYSQL_USER: clinical_user
+      MYSQL_PASSWORD: Cl1n1c@ls!2025
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql8-data:/var/lib/mysql
+      - ./clinicals-init.sql:/docker-entrypoint-initdb.d/clinicals-init.sql:ro
+      - ./fix-clinical-user-auth.sql:/docker-entrypoint-initdb.d/fix-clinical-user-auth.sql:ro
+
+
+volumes:
+  mysql8-data:
